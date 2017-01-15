@@ -1,8 +1,33 @@
 # Sequelizejs-101
-Note for Sequelizejs
+My note and troubleshoot for Sequelizejs
 
-How to use condition for association tables?
+## Where conditions for association tables.
+```
 Company.find({
   include: {all: true},
+  ...
   where: { ‘$employee.name$’: ‘Mr. A’ }
+  ...
 })
+```
+
+## If count rows is incorrect when use `findAndCountAll` function,  try to set `distinct: true`
+```
+Company.findAndCountAll({
+    distinct:true,
+    ...
+    include: [{all:true}]
+  }).then(function(results) {
+    ...
+  });
+```
+
+## Query data for `Page = 2` and `Total rows per page = 10`
+```
+Company.find({
+    ...
+    limit: 10
+    ...
+    offset: 1
+  })
+```
