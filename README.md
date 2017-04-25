@@ -11,7 +11,8 @@ Company.find({
 })
 ```
 
-## If count rows is incorrect when use `findAndCountAll` function,  try to set `distinct: true`
+## To implement paging API use `findAndCountAll`
+### If count rows is incorrect when use `findAndCountAll` function,  try to set `distinct: true`
 ```
 Company.findAndCountAll({
     distinct:true,
@@ -31,3 +32,6 @@ Company.find({
     offset: 1
   })
 ```
+
+## Link to sequelize cli commands
+https://github.com/sequelize/cli
